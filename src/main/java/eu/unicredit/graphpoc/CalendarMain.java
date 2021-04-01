@@ -34,7 +34,7 @@ public class CalendarMain {
                 " (" + date.timeZone + ")";
     }
 
-    private static void listCalendarEvents(String accessToken, String timeZone) {
+    private void listCalendarEvents(String accessToken, String timeZone) {
         ZoneId tzId = GraphToIana.getZoneIdFromWindows("Pacific Standard Time");
 
         // Get midnight of the first day of the week (assumed Sunday)
@@ -78,8 +78,9 @@ public class CalendarMain {
         log.info("Time zone: " + user.mailboxSettings.timeZone);
         log.info("");
 
-
         log.info("Access token: " + accessToken);
+        log.info("");
+
         listCalendarEvents(accessToken, user.mailboxSettings.timeZone != null ? user.mailboxSettings.timeZone : "W. Europe Standard Time");
     }
 
